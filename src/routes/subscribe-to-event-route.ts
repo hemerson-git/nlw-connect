@@ -1,13 +1,13 @@
-import { FastifyPluginAsyncZod } from "fastify-type-provider-zod";
-import { z } from "zod";
+import type { FastifyPluginAsyncZod } from 'fastify-type-provider-zod'
+import { z } from 'zod'
 
-export const subscribeToEventRoute: FastifyPluginAsyncZod = async (app) => {
+export const subscribeToEventRoute: FastifyPluginAsyncZod = async app => {
   app.post(
-    "/subscription",
+    '/subscription',
     {
       schema: {
-        summary: "Subscribe to an event",
-        tags: ["Subscription"],
+        summary: 'Subscribe to an event',
+        tags: ['Subscription'],
         body: z.object({
           name: z.string().min(3).max(255),
           email: z.string().email(),
@@ -15,9 +15,9 @@ export const subscribeToEventRoute: FastifyPluginAsyncZod = async (app) => {
       },
     },
     (request, reply) => {
-      const { email, name } = request.body;
+      const { email, name } = request.body
 
-      return reply.status(201).send({ email, name });
+      return reply.status(201).send({ email, name })
     }
-  );
-};
+  )
+}
