@@ -1,6 +1,5 @@
 import type { FastifyPluginAsyncZod } from 'fastify-type-provider-zod'
 import { z } from 'zod'
-import { subscribeToEvent } from '../functions/subscribe-to-event'
 import { env } from '../env'
 import { AccessInviteLink } from '../functions/access-invite-link'
 
