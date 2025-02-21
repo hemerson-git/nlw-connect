@@ -1,10 +1,8 @@
-import type { ButtonHTMLAttributes, ReactNode } from "react";
+import type { ButtonHTMLAttributes } from 'react'
 
-type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
-  children: ReactNode;
-};
+type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement>
 
-export function Button({ children }: ButtonProps) {
+export function Button(props: ButtonProps) {
   return (
     <button
       type="button"
@@ -12,8 +10,7 @@ export function Button({ children }: ButtonProps) {
         flex justify-between items-center px-5 h-12 bg-gray-500 text-blue font-semibold rounded-xl 
         w-full cursor-pointer transition-colors duration-300 hover:bg-blue hover:text-gray-900
       "
-    >
-      {children}
-    </button>
-  );
+      {...props}
+    />
+  )
 }
